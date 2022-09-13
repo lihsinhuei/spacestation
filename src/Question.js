@@ -29,32 +29,27 @@ const Question = React.memo((props) =>{
 	shuffle(options);
 
 
-	//prevent rerender whole app after form submitted
-	const handleSubmit= (event) =>{
-		event.preventDefault();
-		console.log("handle Submit")
-	}
-
-	// const checkAns=(event)=>{
-	// 		console.log("I am here");
-	// 		console.log(event.target.id)
-
+	//prevent re-render the whole app after submit the form. We don't need it now, because we are using <a> instead of <button> or <form>
+	// const handleSubmit= (event) =>{
+	// 	event.preventDefault();
+	// 	console.log("handle Submit")
 	// }
-
 
 
 	return(
 
-		<div className="tc questionDiv">
+		<div id="interactiveSection" className="tc questionDiv">
 			<h1 className="tc">Quick Q&A!!!</h1>
 			<h2>Guess how many antronies are in space now?</h2>
-				<button type="submit" onClick={props.checkAns} className="unselected" key="A" id="aa" id={options[0]}> {options[0]} </button>
-				<button type="submit" onClick={props.checkAns} className="unselected" key="B" id="bb" id={options[1]}> {options[1]} </button>
-				<button type="submit" onClick={props.checkAns} className="unselected" key="C" id="cc" id={options[2]}> {options[2]} </button>
+				<a href='#answerSection' type="button" onClick={props.checkAns} className="unselected" id={options[0]}> {options[0]} </a>
+				<a href='#answerSection' type="button" onClick={props.checkAns} className="unselected" id={options[1]}> {options[1]} </a>
+				<a href='#answerSection' type="button" onClick={props.checkAns} className="unselected" id={options[2]}> {options[2]} </a>
+
 		</div>
 	)
 
 });
+
 
 
 export default Question;

@@ -2,7 +2,6 @@ import React from 'react';
 import StationMap from './StationMap';
 import Question from './Question';
 import Answer from './Answer';
-import UpdateTime from './UpdateTime';
 import './App.css';
 import L from 'leaflet';
 
@@ -55,11 +54,11 @@ class App extends React.Component{
 			console.log("astronaut updated!")
 		}
 
-	    //run for the first time
+	    //get the data for the first time
 	    fetchLocation();
 	    fetchPpNum();
 
-	    // afterward, run in every 10 seconds
+	    // afterward, update the data in every 10 seconds
 		setInterval(async function(){
 			await fetchLocation();
 		 await fetchPpNum();
@@ -89,15 +88,15 @@ class App extends React.Component{
 			return (
 				<>
 					<nav className="pa3 pa4-ns tc">
-						<h1 >Where Is The Space Station?</h1>
+					
 				 
 					  <div className="tc pb3">
-					    <a className="link dim gray f6 f5-ns dib mr3" href="#" title="Home">Station Location</a>
-					    <a className="link dim gray f6 f5-ns dib mr3" href="#" title="About">astronaut</a>
+					    <a className="link dim gray f6 f5-ns dib mr3" href="#mapSection" title="Home">Station Location</a>
+					    <a className="link dim gray f6 f5-ns dib mr3" href="#interactiveSection" title="About">astronaut</a>
 					  </div>
 					</nav>
-					<UpdateTime timeStamp={this.state.timestamp}/>
-					<StationMap location={this.state.location} />
+					<h1 >Where Is The Space Station?</h1>
+					<StationMap location={this.state.location} timeStamp={this.state.timestamp} />
 					
 					<Question humanNum={this.state.humanNum} checkAns={this.checkAns} />
 					<Answer rightOrWrong={this.state.toggle} humanNum={this.state.humanNum} />
