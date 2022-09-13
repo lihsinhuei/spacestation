@@ -1,0 +1,32 @@
+
+.questionDiv{
+	background-color: #4B8A99;
+	padding: 20px;
+	color: #D7EEF4;
+}
+
+
+.unselected{
+	height: 50px;
+	width: 100px;
+	margin: 10px;
+	border-style: solid;
+    border-width: 1px;
+    border-radius: .25rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    background-color: #F9FDFE;
+    border-color: #F9FDFE;
+    border-radius: 9999px;
+
+}
+
+.unselected:focus{
+	background-color: #a9d4de;
+	border-color: #a9d4de;
+}
+
+.unselected:hover{
+
+
+}
