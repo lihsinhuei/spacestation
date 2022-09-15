@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/spacestation/static/css/main.16b2d5f9.css",
+    "main.js": "/spacestation/static/js/main.756e110b.js",
+    "static/js/787.76189311.chunk.js": "/spacestation/static/js/787.76189311.chunk.js",
+    "index.html": "/spacestation/index.html",
+    "main.16b2d5f9.css.map": "/spacestation/static/css/main.16b2d5f9.css.map",
+    "main.756e110b.js.map": "/spacestation/static/js/main.756e110b.js.map",
+    "787.76189311.chunk.js.map": "/spacestation/static/js/787.76189311.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16b2d5f9.css",
+    "static/js/main.756e110b.js"
+  ]
+}
