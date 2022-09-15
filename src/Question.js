@@ -38,13 +38,22 @@ const Question = React.memo((props) =>{
 
 	return(
 
-		<div id="interactiveSection" className="tc questionDiv">
-			<h1 className="tc">Quick Q&A!!!</h1>
-			<h2>Guess how many antronies are in space now?</h2>
-				<a href='#answerSection' type="button" onClick={props.checkAns} className="unselected" id={options[0]}> {options[0]} </a>
-				<a href='#answerSection' type="button" onClick={props.checkAns} className="unselected" id={options[1]}> {options[1]} </a>
-				<a href='#answerSection' type="button" onClick={props.checkAns} className="unselected" id={options[2]}> {options[2]} </a>
-
+		<div id="interactiveSection" className="container">
+			<div>
+				<h1>How many antronies are in the space now?</h1>
+			</div>
+			<ol>
+				<h2>Take a guess!</h2>
+				<li className="answerOption">
+					<a href='#answerSection' type="button" onClick={props.checkAns} className="unselected" id={options[0]}>1. {options[0]} people</a>
+				</li>
+				<li className="answerOption">	
+					<a href='#answerSection' type="button" onClick={props.checkAns} className="unselected" id={options[1]}>2. {options[1]} people</a>
+				</li>
+				<li className="answerOption">	
+					<a href='#answerSection' type="button" onClick={props.checkAns} className="unselected" id={options[2]}>3. {options[2]} people</a>
+				</li>
+			</ol>
 		</div>
 	)
 

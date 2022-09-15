@@ -8,8 +8,14 @@ const StationMap = ({location,timeStamp}) =>{
 
 	return(
 		<div id="mapSection">
-			<div className=" gray f5-ns tc" style={{background:"#78B2BF" }}>last updated time : {time}</div>
-			<div style={{background: "#78B2BF",paddingBottom:'40px'}}>
+			<div id="summarize">
+				<div style={{}}> - last updated time : {time}</div>
+				<div> - Latitue:<span style={{"color":"#c9082b"}}>{location[0]}</span> </div>
+				<div> - Longitude:<span style={{"color":"#c9082b"}}>{location[1]}</span> </div>
+				<br></br>
+				<div style={{"font-style":"italic"}}> Data is updated every <span style={{"color":"#c9082b"}}>5</span> seconds.</div>
+			</div>
+			<div style={{paddingBottom:'40px'}}>
 			<MapContainer id="map" center={location} zoom={2} scrollWheelZoom={true}>
 			  <TileLayer
 			    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

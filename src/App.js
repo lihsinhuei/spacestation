@@ -15,7 +15,8 @@ class App extends React.Component{
 			humanNum: '', //retruned from People-In-Space API 
 			userAnswer: '', //user's input number
 			astronaut:[],
-			toggle:0,
+			rightOrWrong:0,//default 0 means that user haven't answered yet, 1 means right answer, 2 means wrong answer
+
 		}
 	}
 
@@ -23,12 +24,16 @@ class App extends React.Component{
 	checkAns=(event)=>{
 		const count = Number(event.target.id); //convert string to number
 		if(count === this.state.humanNum){
-			this.setState({toggle:1});
+			this.setState({rightOrWrong:1});
 			console.log("Bingo!!")
 		}else{
-			this.setState({toggle:2});
-			console.log("nice shot!!")
+			this.setState({rightOrWrong:2});
+			console.log("opps wrong answer!!")
 		}
+	}
+
+	closePopup=(event)=>{
+		this.setState({rightOrWrong:0});
 	}
 	
 
@@ -58,12 +63,12 @@ class App extends React.Component{
 	    fetchLocation();
 	    fetchPpNum();
 
-	    // afterward, update the data in every 10 seconds
+	    // afterward, update the data in every 5 seconds
 		setInterval(async function(){
 			await fetchLocation();
 		 await fetchPpNum();
 		}
-		,10000)
+		,5000)
 
 	}
 
@@ -86,21 +91,34 @@ class App extends React.Component{
 		}else{
 			console.log("why here");
 			return (
-				<>
-					<nav className="pa3 pa4-ns tc">
-					
-				 
-					  <div className="tc pb3">
-					    <a className="link dim gray f6 f5-ns dib mr3" href="#mapSection" title="Home">Station Location</a>
-					    <a className="link dim gray f6 f5-ns dib mr3" href="#interactiveSection" title="About">astronaut</a>
-					  </div>
+				<div id="App">
+					<nav>
+						<ul>
+							<li>
+						    	<a className="navButton" href="#mapSection">Station Location</a>
+						    </li>
+						    <li>
+						   		<a className="navButton" href="#interactiveSection">Astronaut Number</a>
+							</li>
+						</ul>
 					</nav>
-					<h1 >Where Is The Space Station?</h1>
-					<StationMap location={this.state.location} timeStamp={this.state.timestamp} />
-					
-					<Question humanNum={this.state.humanNum} checkAns={this.checkAns} />
-					<Answer rightOrWrong={this.state.toggle} humanNum={this.state.humanNum} />
-				</>
+					<div className="container mapSection">
+						<div>
+							<h1 >The International Space Station Location</h1>
+							<p>Thanks for the API of <a href="http://open-notify.org/" target="new">Open APIs From Space</a> and also <a href="https://leafletjs.com/" target="new">Leaflet</a> map API!</p>
+						</div>
+						<StationMap location={this.state.location} timeStamp={this.state.timestamp} />
+					</div>
+					<Question rightOrWrong={this.state.rightOrWrong}  humanNum={this.state.humanNum} checkAns={this.checkAns} />
+					<Answer rightOrWrong={this.state.rightOrWrong} humanNum={this.state.humanNum} closePopup={this.closePopup}/>
+					<footer>
+						<div id="footer">
+							<p className="footerContent">Author: Hsin Huei Li</p>
+	  						<p className="footerContent">Mail me: <a href="mailto:lihsinhuei@gmail.com">lihsinhuei@gmail.com</a></p>
+	  						<p className="footerContent"><a href="https://github.com/lihsinhuei/spacestation">github</a></p>
+						</div>
+					</footer>
+				</div>
             );
 
 		}
