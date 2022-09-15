@@ -5,8 +5,8 @@
 }
 
 ol{
-  border: 3px black solid;
-  /*box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.3);*/
+  /*border: 3px black solid;*/
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   padding:  20px ;
   list-style-type: none;
 }
