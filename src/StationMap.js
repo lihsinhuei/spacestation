@@ -11,17 +11,16 @@ const StationMap = ({location,timeStamp,apiFail}) =>{
 	return(
 		<div id="mapSection">
 			<div id="summarize">
-				<div style={{}}> - last updated time : {time}</div>
-				<div> - Latitue:<span style={{"color":"#c9082b"}}>{location[0]}</span> </div>
-				<div> - Longitude:<span style={{"color":"#c9082b"}}>{location[1]}</span> </div>
-				<br></br>
+				<p style={{}}> - last updated time : {time}</p>
+				<p> - Latitue:<span className="locationData" >{location[0]}</span> </p>
+				<p> - Longitude:<span className="locationData" >{location[1]}</span> </p>
 				<div style={{"fontStyle":"italic"}}> Data is updated every <span style={{"color":"#c9082b"}}>5</span> seconds.</div>
 			</div>
 			<div id="apiFail">
 				<p>API updating failed. To see the correct data, please change your browser setting. For Chrome users: <br /> 1. Go to Settings > Privacy and Security <br /> 2. Change Insecure Content (under permissions) from block(default) to allow. </p>
 			</div>
 			<div style={{paddingBottom:'40px'}}>
-			<MapContainer id="map" center={location} zoom={2} scrollWheelZoom={true}>
+			<MapContainer id="map" center={location}  zoom={2} scrollWheelZoom={true}>
 			  <TileLayer
 			    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

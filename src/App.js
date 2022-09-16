@@ -50,14 +50,14 @@ class App extends React.Component{
 					this.setState({apiFail:0});
 				}).catch(err => {
 
-					//showing the warning paragraph
-					document.querySelector('#apiFail').style.display = "block"; 
-
 					//use default data
 					let currentDate = new Date();
 					this.setState({location:[-8.7021,33.6540]});
 					this.setState({timestamp: currentDate});
 					this.setState({apiFail:1});
+
+					//showing the warning paragraph
+					document.querySelector('#apiFail').style.display = "block"; 
 					
 					console.log("catched an error1!!!!!!!!:"+err)
 				})
@@ -80,15 +80,18 @@ class App extends React.Component{
 					this.setState({astronaut:data.people});
 					this.setState({apiFail:0});
 				}).catch(err =>{
-					//showing the warning paragraph
-					document.querySelector('#apiFail').style.display = "block"; 
 
 					//use default data
 					this.setState({humanNum:10});
 					this.setState({astronaut:[]});
 					this.setState({apiFail:1});
+
+					//showing the warning paragraph
+					document.querySelector('#apiFail').style.display = "block"; 
+
 					console.log("catched an error2!!!!!!!!:"+err)
 				})
+
 			console.log("astronaut updated!")
 		}
 
@@ -112,16 +115,28 @@ class App extends React.Component{
 		if(this.state.location.length === 0 ){
 			console.log("no location");
 			return (
-				<>
-					<nav className="pa3 pa4-ns">
-					  <a className="link dim black b f1 f-headline-ns tc db mb3 mb4-ns" href="#" title="Home">Where Is The Space Station?</a>
-					  <div className="tc pb3">
-					    <a className="link dim gray f6 f5-ns dib mr3" href="#" title="Home">Station Location</a>
-					    <a className="link dim gray f6 f5-ns dib mr3" href="#" title="About">astronaut</a>
-					  </div>
+				<div id="App">
+					<nav>
+						<ul>
+							<li><a className="navButton" href="#mapSection">Station Location</a></li>
+						    <li><a className="navButton" href="#interactiveSection">Astronaut Number</a></li>
+						</ul>
 					</nav>
-					<h1>Loading</h1> 
-				</>
+					<div className="container mapSection">
+						<div>
+							<h1 >The International Space Station Location</h1>
+							<p>Thanks <a href="http://open-notify.org/" target="new">Open APIs From Space</a> and <a href="https://leafletjs.com/" target="new">Leaflet</a> for providing reliable APIs</p>
+						</div>
+						<div>loading</div>
+					</div>
+					<footer>
+						<div id="footer">
+							<p className="footerContent">Author: Hsin Huei Li</p>
+	  						<p className="footerContent">Mail me: <a href="mailto:lihsinhuei@gmail.com">lihsinhuei@gmail.com</a></p>
+	  						<p className="footerContent"><a href="https://github.com/lihsinhuei/spacestation">github</a></p>
+						</div>
+					</footer>
+				</div>
 			)
 		}else{
 			console.log("why here");
