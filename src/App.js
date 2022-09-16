@@ -21,7 +21,7 @@ class App extends React.Component{
 		}
 	}
 
-
+	//check user's answer of astronaut number
 	checkAns=(event)=>{
 		const count = Number(event.target.id); //convert string to number
 		if(count === this.state.humanNum){
@@ -33,6 +33,7 @@ class App extends React.Component{
 		}
 	}
 
+	//close the answer popup window
 	closePopup=(event)=>{
 		this.setState({rightOrWrong:0});
 	}
@@ -48,27 +49,29 @@ class App extends React.Component{
 					this.setState({location:[data.iss_position.latitude,data.iss_position.longitude]})
 					this.setState({timestamp: data.timestamp});
 					this.setState({apiFail:0});
-				}).catch(err => {
 
-					//use default data
+					//check if #apiFail element has been rendered(exist)
+					if(document.querySelector('#apiFail')){
+						//hide the warning words
+						document.querySelector('#apiFail').style.display = "none"; 
+					}else{
+						//do nothing
+					}
+					
+				}).catch(err => {
+					console.log("catched an error1!!!!!!!!:"+err);
+					//API failed!!!Use default fake data 
 					let currentDate = new Date();
 					this.setState({location:[-8.7021,33.6540]});
 					this.setState({timestamp: currentDate});
 					this.setState({apiFail:1});
 
-					//showing the warning paragraph
+					//showing the warning words
 					document.querySelector('#apiFail').style.display = "block"; 
+
 					
-					console.log("catched an error1!!!!!!!!:"+err)
 				})
-			console.log("fetched!!!")
 		}
-
-
-
- // Latitue:-8.7021
- // Longitude:33.6540
-
 
 
 		//function: fetch astronaut number from API
@@ -79,20 +82,20 @@ class App extends React.Component{
 					this.setState({humanNum:data.number});
 					this.setState({astronaut:data.people});
 					this.setState({apiFail:0});
+
+
 				}).catch(err =>{
+					console.log("catched an error2!!!!!!!!:"+err)
 
 					//use default data
 					this.setState({humanNum:10});
 					this.setState({astronaut:[]});
 					this.setState({apiFail:1});
 
-					//showing the warning paragraph
-					document.querySelector('#apiFail').style.display = "block"; 
-
-					console.log("catched an error2!!!!!!!!:"+err)
+					//showing the warning words
+					document.querySelector('#apiFail').style.display = "block"; 					
 				})
 
-			console.log("astronaut updated!")
 		}
 
 	    //get the data for the first time
@@ -113,7 +116,7 @@ class App extends React.Component{
 
 	render(){
 		if(this.state.location.length === 0 ){
-			console.log("no location");
+			//default content before API data loaded
 			return (
 				<div id="App">
 					<nav>
@@ -123,10 +126,6 @@ class App extends React.Component{
 						</ul>
 					</nav>
 					<div className="container mapSection">
-						<div>
-							<h1 >The International Space Station Location</h1>
-							<p>Thanks <a href="http://open-notify.org/" target="new">Open APIs From Space</a> and <a href="https://leafletjs.com/" target="new">Leaflet</a> for providing reliable APIs</p>
-						</div>
 						<div>loading</div>
 					</div>
 					<footer>
@@ -139,7 +138,6 @@ class App extends React.Component{
 				</div>
 			)
 		}else{
-			console.log("why here");
 			return (
 				<div id="App">
 					<nav>
