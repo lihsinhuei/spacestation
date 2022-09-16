@@ -16,6 +16,7 @@ class App extends React.Component{
 			userAnswer: '', //user's input number
 			astronaut:[],
 			rightOrWrong:0,//default 0 means that user haven't answered yet, 1 means right answer, 2 means wrong answer
+			apiFail:0, //record if there is any error while fetch api
 
 		}
 	}
@@ -39,22 +40,45 @@ class App extends React.Component{
 
 	componentDidMount(){
 
+		//function: fetch location data from API
 		const fetchLocation = () => {
 			fetch("http://api.open-notify.org/iss-now.json")
 				.then(resp => resp.json())
 				.then((data) => {
 					this.setState({location:[data.iss_position.latitude,data.iss_position.longitude]})
 					this.setState({timestamp: data.timestamp});
+					this.setState({apiFail:0});
+				}).catch(err => {
+					//use default data
+					let currentDate = new Date();
+					this.setState({location:[-8.7021,33.6540]});
+					this.setState({timestamp: currentDate});
+					this.setState({apiFail:1});
+					console.log("catched an error1!!!!!!!!:"+err)
 				})
 			console.log("fetched!!!")
 		}
 
+
+ // Latitue:-8.7021
+ // Longitude:33.6540
+
+
+
+		//function: fetch astronaut number from API
 		const fetchPpNum = () => {
 			fetch("http://api.open-notify.org/astros.json")
 				.then(resp => resp.json())
 				.then(data => {
 					this.setState({humanNum:data.number});
 					this.setState({astronaut:data.people});
+					this.setState({apiFail:0});
+				}).catch(err =>{
+					//use default data
+					this.setState({humanNum:10});
+					this.setState({astronaut:[]});
+					this.setState({apiFail:1});
+					console.log("catched an error2!!!!!!!!:"+err)
 				})
 			console.log("astronaut updated!")
 		}
@@ -103,7 +127,7 @@ class App extends React.Component{
 							<h1 >The International Space Station Location</h1>
 							<p>Thanks for the API of <a href="http://open-notify.org/" target="new">Open APIs From Space</a> and also <a href="https://leafletjs.com/" target="new">Leaflet</a> map API!</p>
 						</div>
-						<StationMap location={this.state.location} timeStamp={this.state.timestamp} />
+						<StationMap location={this.state.location} timeStamp={this.state.timestamp} apiFail={this.state.apiFail} />
 					</div>
 					<Question rightOrWrong={this.state.rightOrWrong}  humanNum={this.state.humanNum} checkAns={this.checkAns} />
 					<Answer rightOrWrong={this.state.rightOrWrong} humanNum={this.state.humanNum} closePopup={this.closePopup}/>

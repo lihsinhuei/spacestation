@@ -2,8 +2,13 @@ import React from 'react';
 import './StationMap.css';
 import { MapContainer, TileLayer, useMap, Marker, Popup} from 'react-leaflet'
 
-const StationMap = ({location,timeStamp}) =>{
+const StationMap = ({location,timeStamp,apiFail}) =>{
+
+	//javascrip uses millionsecond, thus we need to multiply timeStamp by 1000 
 	const time = new Date(timeStamp*1000).toLocaleDateString("en-US")
+	if(apiFail){
+		document.querySelector('#apiFail').style.display = "block"; 
+	}
 
 
 	return(
@@ -14,6 +19,9 @@ const StationMap = ({location,timeStamp}) =>{
 				<div> - Longitude:<span style={{"color":"#c9082b"}}>{location[1]}</span> </div>
 				<br></br>
 				<div style={{"fontStyle":"italic"}}> Data is updated every <span style={{"color":"#c9082b"}}>5</span> seconds.</div>
+			</div>
+			<div id="apiFail">
+				<p>API updating failed. To see the correct data, please change your browser setting. For Chrome users: <br /> 1. Go to Settings > Privacy and Security <br /> 2. Change Insecure Content (under permissions) from block(default) to allow. </p>
 			</div>
 			<div style={{paddingBottom:'40px'}}>
 			<MapContainer id="map" center={location} zoom={2} scrollWheelZoom={true}>
