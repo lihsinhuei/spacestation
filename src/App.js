@@ -100,8 +100,11 @@ class App extends React.Component{
 		 await fetchPpNum();
 		}
 		,5000)
+		
+		ifApiFailed();
 
 	}
+		
 
 
 	render(){
@@ -132,7 +135,7 @@ class App extends React.Component{
 					<div className="container mapSection">
 						<div>
 							<h1 >The International Space Station Location</h1>
-							<p>Thanks for the API of <a href="http://open-notify.org/" target="new">Open APIs From Space</a> and also <a href="https://leafletjs.com/" target="new">Leaflet</a> map API!</p>
+							<p>Thanks for <a href="http://open-notify.org/" target="new">Open APIs From Space</a> and <a href="https://leafletjs.com/" target="new">Leaflet</a></p>
 						</div>
 						<StationMap location={this.state.location} timeStamp={this.state.timestamp} apiFail={this.state.apiFail} />
 					</div>
