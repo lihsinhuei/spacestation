@@ -59,6 +59,13 @@ class App extends React.Component{
 			console.log("fetched!!!")
 		}
 
+		const ifApiFailed =() =>{
+			if(this.state.apiFail){
+				document.querySelector('#apiFail').style.display = "block"; 
+			}
+		}
+
+
 
  // Latitue:-8.7021
  // Longitude:33.6540

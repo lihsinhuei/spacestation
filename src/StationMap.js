@@ -6,9 +6,6 @@ const StationMap = ({location,timeStamp,apiFail}) =>{
 
 	//javascrip uses millionsecond, thus we need to multiply timeStamp by 1000 
 	const time = new Date(timeStamp*1000).toLocaleDateString("en-US")
-	if(apiFail){
-		document.querySelector('#apiFail').style.display = "block"; 
-	}
 
 
 	return(
