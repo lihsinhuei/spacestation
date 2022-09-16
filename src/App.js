@@ -54,15 +54,10 @@ class App extends React.Component{
 					this.setState({location:[-8.7021,33.6540]});
 					this.setState({timestamp: currentDate});
 					this.setState({apiFail:1});
+					document.querySelector('#apiFail').style.display = "block"; 
 					console.log("catched an error1!!!!!!!!:"+err)
 				})
 			console.log("fetched!!!")
-		}
-
-		const ifApiFailed =() =>{
-			if(this.state.apiFail){
-				document.querySelector('#apiFail').style.display = "block"; 
-			}
 		}
 
 
@@ -100,8 +95,7 @@ class App extends React.Component{
 		 await fetchPpNum();
 		}
 		,5000)
-		
-		ifApiFailed();
+
 
 	}
 		
