@@ -49,12 +49,16 @@ class App extends React.Component{
 					this.setState({timestamp: data.timestamp});
 					this.setState({apiFail:0});
 				}).catch(err => {
+
+					//showing the warning paragraph
+					document.querySelector('#apiFail').style.display = "block"; 
+
 					//use default data
 					let currentDate = new Date();
 					this.setState({location:[-8.7021,33.6540]});
 					this.setState({timestamp: currentDate});
 					this.setState({apiFail:1});
-					document.querySelector('#apiFail').style.display = "block"; 
+					
 					console.log("catched an error1!!!!!!!!:"+err)
 				})
 			console.log("fetched!!!")
@@ -76,6 +80,9 @@ class App extends React.Component{
 					this.setState({astronaut:data.people});
 					this.setState({apiFail:0});
 				}).catch(err =>{
+					//showing the warning paragraph
+					document.querySelector('#apiFail').style.display = "block"; 
+
 					//use default data
 					this.setState({humanNum:10});
 					this.setState({astronaut:[]});
@@ -129,7 +136,7 @@ class App extends React.Component{
 					<div className="container mapSection">
 						<div>
 							<h1 >The International Space Station Location</h1>
-							<p>Thanks for <a href="http://open-notify.org/" target="new">Open APIs From Space</a> and <a href="https://leafletjs.com/" target="new">Leaflet</a></p>
+							<p>Thanks <a href="http://open-notify.org/" target="new">Open APIs From Space</a> and <a href="https://leafletjs.com/" target="new">Leaflet</a> for providing reliable APIs</p>
 						</div>
 						<StationMap location={this.state.location} timeStamp={this.state.timestamp} apiFail={this.state.apiFail} />
 					</div>
