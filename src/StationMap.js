@@ -13,7 +13,7 @@ const StationMap = ({location,timeStamp}) =>{
 				<div> - Latitue:<span style={{"color":"#c9082b"}}>{location[0]}</span> </div>
 				<div> - Longitude:<span style={{"color":"#c9082b"}}>{location[1]}</span> </div>
 				<br></br>
-				<div style={{"font-style":"italic"}}> Data is updated every <span style={{"color":"#c9082b"}}>5</span> seconds.</div>
+				<div style={{"fontStyle":"italic"}}> Data is updated every <span style={{"color":"#c9082b"}}>5</span> seconds.</div>
 			</div>
 			<div style={{paddingBottom:'40px'}}>
 			<MapContainer id="map" center={location} zoom={2} scrollWheelZoom={true}>
