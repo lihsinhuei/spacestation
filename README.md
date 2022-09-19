@@ -4,11 +4,11 @@
 Check the live web [here](https://lihsinhuei.github.io/spacestation/)!
 
 # What are used in this tiny project: 
-- ReactJS/[Create React App](https://create-react-app.dev/)
+- ReactJS/Create React App
 - HTML
 - CSS/CSS grid
 - [ISS data API](http://open-notify.org/)
-- Map API:[leaflet](https://leafletjs.com/)
+- [leaflet](https://leafletjs.com/)(a map API)
 
 
 
