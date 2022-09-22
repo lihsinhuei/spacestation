@@ -121,8 +121,8 @@ class App extends React.Component{
 				<div id="App">
 					<nav>
 						<ul>
-							<li><a className="navButton" href="#mapSection">Station Location</a></li>
-						    <li><a className="navButton" href="#interactiveSection">Astronaut Number</a></li>
+							<li className="liNav"><a className="navButton" href="#mapSection">Station Location</a></li>
+						    <li className="liNav"><a className="navButton" href="#interactiveSection">Astronaut Number</a></li>
 						</ul>
 					</nav>
 					<div className="container mapSection">
@@ -142,8 +142,8 @@ class App extends React.Component{
 				<div id="App">
 					<nav>
 						<ul>
-							<li><a className="navButton" href="#mapSection">Station Location</a></li>
-						    <li><a className="navButton" href="#interactiveSection">Astronaut Number</a></li>
+							<li className="liNav"><a className="navButton" href="#mapSection">Station Location</a></li>
+						    <li className="liNav"><a className="navButton" href="#interactiveSection">Astronaut Number</a></li>
 						</ul>
 					</nav>
 					<div className="container mapSection">

@@ -4,3 +4,10 @@ body {
   font-family: 'Courier New' Garamond;
 }
 
+
+@media screen and (max-device-width:480px){
+  html, body {
+    overflow-x: hidden; 
+    /*not allow left and right scroll*/
+  }
+}
