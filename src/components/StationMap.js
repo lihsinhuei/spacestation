@@ -14,8 +14,8 @@ const StationMap = ({location,timeStamp,apiFail}) =>{
 			{/*demonstrate the data */}
 			<div id="summarize">
 				<p style={{}}> - last updated time : {time}</p>
-				<p> - Latitue:<span className="locationData" >{location[0]}</span> </p>
-				<p> - Longitude:<span className="locationData" >{location[1]}</span> </p>
+				<p> - Latitue: <span className="locationData" >{location[0]}</span> </p>
+				<p> - Longitude: <span className="locationData" >{location[1]}</span> </p>
 				<div style={{"fontStyle":"italic"}}> Data is updated every <span style={{"color":"#c9082b"}}>5</span> seconds.</div>
 			</div>
 			<div id="apiFail">

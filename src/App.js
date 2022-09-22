@@ -1,7 +1,7 @@
 import React from 'react';
-import StationMap from './StationMap';
-import Question from './Question';
-import Answer from './Answer';
+import StationMap from './components/StationMap';
+import Question from './components/Question';
+import Answer from './components/Answer';
 import './App.css';
 import L from 'leaflet';
 
