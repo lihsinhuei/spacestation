@@ -5,10 +5,9 @@
 
 
 ## Mixed Content Caveat:
-One of the API used in this project is using HTTP(insecure), thus it causes "mixed content" issue on GitHub Pages(using secure HTTPS).
-When an HTTPS website references insecure (HTTP) resources, [mixed content](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content) issue happens. 
+One of the API used in this project is using HTTP(insecure), thus it causes "[mixed content](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content)" issue on GitHub Pages(using secure HTTPS).
 
-Therefore, to see the data updated correctly, you might have to change the browser setting. (Follow the instruction shown in a red block on the website)
+To see the data updated correctly, you might have to change the browser setting. (Follow the instruction shown in a red block on the website)
 
 
 # What are used in this project: 
