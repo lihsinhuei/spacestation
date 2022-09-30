@@ -1,7 +1,7 @@
 # Main function: 
-<span style="color:rgb(107, 16, 121),background: white"> show the real-time location of the international space station and an interactive QA section </span>
+<span style="color:rgb(107, 16, 121)"> show the real-time location of the international space station and an interactive QA section </span>
 
-Check the live web [here](https://lihsinhuei.github.io/spacestation/)!
+<span style="color:blue">Check the live web [here](https://lihsinhuei.github.io/spacestation/)!</span>
 
 
 ## Mixed Content Caveat:
