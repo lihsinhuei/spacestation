@@ -10,12 +10,14 @@ One of the API used in this project is using HTTP(insecure), thus it causes "[mi
 To see the data updated correctly, you might have to change the browser setting. (Follow the instruction shown in a red block on the website)
 
 
-# What are used in this project: 
-- ReactJS/Create React App
-- HTML
-- CSS/CSS grid
-- [ISS data API](http://open-notify.org/) (it's the API causes mixed content issue here)
-- [leaflet](https://leafletjs.com/)(a map API)
+# Feature: 
+⚡️ ReactJS/Create React App
+⚡️ HTML
+⚡️ CSS grid
+⚡️ Fully responsive
+⚡️ Mobile devices friendely 
+⚡️ [ISS data API](http://open-notify.org/) (it's the API causes mixed content issue here)
+⚡️ [leaflet](https://leafletjs.com/)(a map API)
 
 
 
