@@ -4,7 +4,7 @@
 Check the live web [here](https://lihsinhuei.github.io/spacestation/)!
 
 -------------------------------
-## Note:
+## Mixed Content Caveat:
 One of the API used in this project is using HTTP(insecure), thus it causes "mixed content" issue on GitHub Page(using secure HTTPS).
 When an HTTPS website references insecure (HTTP) resources, [mixed content](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content) issue happens. 
 
