@@ -3,7 +3,7 @@
 
 Check the live web [here](https://lihsinhuei.github.io/spacestation/)!
 
-# What are used in this tiny project: 
+# What are used in this project: 
 - ReactJS/Create React App
 - HTML
 - CSS/CSS grid
